@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		192F02712041F3BB0001FB28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F02702041F3BB0001FB28 /* AppDelegate.swift */; };
+		192F02732041F3BB0001FB28 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F02722041F3BB0001FB28 /* ViewController.swift */; };
+		192F02762041F3BB0001FB28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192F02742041F3BB0001FB28 /* Main.storyboard */; };
+		192F02782041F3BB0001FB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192F02772041F3BB0001FB28 /* Assets.xcassets */; };
+		192F027B2041F3BB0001FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192F02792041F3BB0001FB28 /* LaunchScreen.storyboard */; };
+		192F02862041F3BB0001FB28 /* AllHBCU_MessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F02852041F3BB0001FB28 /* AllHBCU_MessengerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		192F02822041F3BB0001FB28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 192F02652041F3BB0001FB28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 192F026C2041F3BB0001FB28;
+			remoteInfo = "AllHBCU Messenger";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		192F026D2041F3BB0001FB28 /* AllHBCU Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AllHBCU Messenger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		192F02702041F3BB0001FB28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		192F02722041F3BB0001FB28 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		192F02752041F3BB0001FB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		192F02772041F3BB0001FB28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		192F027A2041F3BB0001FB28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		192F027C2041F3BB0001FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192F02812041F3BB0001FB28 /* AllHBCU MessengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AllHBCU MessengerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		192F02852041F3BB0001FB28 /* AllHBCU_MessengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHBCU_MessengerTests.swift; sourceTree = "<group>"; };
+		192F02872041F3BB0001FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		192F026A2041F3BB0001FB28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192F027E2041F3BB0001FB28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		192F02642041F3BB0001FB28 = {
+			isa = PBXGroup;
+			children = (
+				192F026F2041F3BB0001FB28 /* AllHBCU Messenger */,
+				192F02842041F3BB0001FB28 /* AllHBCU MessengerTests */,
+				192F026E2041F3BB0001FB28 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		192F026E2041F3BB0001FB28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				192F026D2041F3BB0001FB28 /* AllHBCU Messenger.app */,
+				192F02812041F3BB0001FB28 /* AllHBCU MessengerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		192F026F2041F3BB0001FB28 /* AllHBCU Messenger */ = {
+			isa = PBXGroup;
+			children = (
+				192F02702041F3BB0001FB28 /* AppDelegate.swift */,
+				192F02722041F3BB0001FB28 /* ViewController.swift */,
+				192F02742041F3BB0001FB28 /* Main.storyboard */,
+				192F02772041F3BB0001FB28 /* Assets.xcassets */,
+				192F02792041F3BB0001FB28 /* LaunchScreen.storyboard */,
+				192F027C2041F3BB0001FB28 /* Info.plist */,
+			);
+			path = "AllHBCU Messenger";
+			sourceTree = "<group>";
+		};
+		192F02842041F3BB0001FB28 /* AllHBCU MessengerTests */ = {
+			isa = PBXGroup;
+			children = (
+				192F02852041F3BB0001FB28 /* AllHBCU_MessengerTests.swift */,
+				192F02872041F3BB0001FB28 /* Info.plist */,
+			);
+			path = "AllHBCU MessengerTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		192F026C2041F3BB0001FB28 /* AllHBCU Messenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 192F028A2041F3BB0001FB28 /* Build configuration list for PBXNativeTarget "AllHBCU Messenger" */;
+			buildPhases = (
+				192F02692041F3BB0001FB28 /* Sources */,
+				192F026A2041F3BB0001FB28 /* Frameworks */,
+				192F026B2041F3BB0001FB28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AllHBCU Messenger";
+			productName = "AllHBCU Messenger";
+			productReference = 192F026D2041F3BB0001FB28 /* AllHBCU Messenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		192F02802041F3BB0001FB28 /* AllHBCU MessengerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 192F028D2041F3BB0001FB28 /* Build configuration list for PBXNativeTarget "AllHBCU MessengerTests" */;
+			buildPhases = (
+				192F027D2041F3BB0001FB28 /* Sources */,
+				192F027E2041F3BB0001FB28 /* Frameworks */,
+				192F027F2041F3BB0001FB28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				192F02832041F3BB0001FB28 /* PBXTargetDependency */,
+			);
+			name = "AllHBCU MessengerTests";
+			productName = "AllHBCU MessengerTests";
+			productReference = 192F02812041F3BB0001FB28 /* AllHBCU MessengerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		192F02652041F3BB0001FB28 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = KellumWebDev;
+				TargetAttributes = {
+					192F026C2041F3BB0001FB28 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					192F02802041F3BB0001FB28 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 192F026C2041F3BB0001FB28;
+					};
+				};
+			};
+			buildConfigurationList = 192F02682041F3BB0001FB28 /* Build configuration list for PBXProject "AllHBCU Messenger" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 192F02642041F3BB0001FB28;
+			productRefGroup = 192F026E2041F3BB0001FB28 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				192F026C2041F3BB0001FB28 /* AllHBCU Messenger */,
+				192F02802041F3BB0001FB28 /* AllHBCU MessengerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		192F026B2041F3BB0001FB28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192F027B2041F3BB0001FB28 /* LaunchScreen.storyboard in Resources */,
+				192F02782041F3BB0001FB28 /* Assets.xcassets in Resources */,
+				192F02762041F3BB0001FB28 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192F027F2041F3BB0001FB28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		192F02692041F3BB0001FB28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192F02732041F3BB0001FB28 /* ViewController.swift in Sources */,
+				192F02712041F3BB0001FB28 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		192F027D2041F3BB0001FB28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192F02862041F3BB0001FB28 /* AllHBCU_MessengerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		192F02832041F3BB0001FB28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 192F026C2041F3BB0001FB28 /* AllHBCU Messenger */;
+			targetProxy = 192F02822041F3BB0001FB28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		192F02742041F3BB0001FB28 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				192F02752041F3BB0001FB28 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		192F02792041F3BB0001FB28 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				192F027A2041F3BB0001FB28 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		192F02882041F3BB0001FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		192F02892041F3BB0001FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		192F028B2041F3BB0001FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HLRRKQKME;
+				INFOPLIST_FILE = "AllHBCU Messenger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allhbcu.AllHBCU-Messenger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		192F028C2041F3BB0001FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HLRRKQKME;
+				INFOPLIST_FILE = "AllHBCU Messenger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allhbcu.AllHBCU-Messenger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		192F028E2041F3BB0001FB28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HLRRKQKME;
+				INFOPLIST_FILE = "AllHBCU MessengerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allhbcu.AllHBCU-MessengerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AllHBCU Messenger.app/AllHBCU Messenger";
+			};
+			name = Debug;
+		};
+		192F028F2041F3BB0001FB28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8HLRRKQKME;
+				INFOPLIST_FILE = "AllHBCU MessengerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.allhbcu.AllHBCU-MessengerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AllHBCU Messenger.app/AllHBCU Messenger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		192F02682041F3BB0001FB28 /* Build configuration list for PBXProject "AllHBCU Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192F02882041F3BB0001FB28 /* Debug */,
+				192F02892041F3BB0001FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		192F028A2041F3BB0001FB28 /* Build configuration list for PBXNativeTarget "AllHBCU Messenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192F028B2041F3BB0001FB28 /* Debug */,
+				192F028C2041F3BB0001FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		192F028D2041F3BB0001FB28 /* Build configuration list for PBXNativeTarget "AllHBCU MessengerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				192F028E2041F3BB0001FB28 /* Debug */,
+				192F028F2041F3BB0001FB28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 192F02652041F3BB0001FB28 /* Project object */;
+}
