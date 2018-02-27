@@ -19,19 +19,17 @@ class ProfileTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func configureCell(profile: [String: Any]){
-        let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
+    func configureCell(user: User){
+        //let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
         
         name.text = nil
         avatar.text = nil
         avatar.backgroundColor = nil
         avatar.layer.cornerRadius = avatar.frame.width / 2
         
-        guard let name = profile["name"] as? String, let color = profile["avatar_color"] as? Int else {
-            return
-        }
-        self.name.text = name
-        self.avatar.text = String(describing: name.first!).uppercased()
-        self.avatar.backgroundColor = colors[color]
+      
+        self.name.text = user.name
+        self.avatar.text = String(describing: user.name.first!).uppercased()
+        self.avatar.backgroundColor = user.avatarColor
     }
 }

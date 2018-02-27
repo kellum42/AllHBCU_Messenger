@@ -14,6 +14,7 @@
 		192F02782041F3BB0001FB28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192F02772041F3BB0001FB28 /* Assets.xcassets */; };
 		192F027B2041F3BB0001FB28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192F02792041F3BB0001FB28 /* LaunchScreen.storyboard */; };
 		192F02862041F3BB0001FB28 /* AllHBCU_MessengerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192F02852041F3BB0001FB28 /* AllHBCU_MessengerTests.swift */; };
+		19B36039204588C300D8B814 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B36038204588C300D8B814 /* ChatViewController.swift */; };
 		19E2E6D12041F79E000CA770 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19E2E6D02041F79E000CA770 /* GoogleService-Info.plist */; };
 		19E2E6D42041FE92000CA770 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2E6D32041FE92000CA770 /* ProfileTableViewCell.swift */; };
 		19E2E6D6204203F6000CA770 /* CreateProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2E6D5204203F6000CA770 /* CreateProfileTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		192F02812041F3BB0001FB28 /* AllHBCU MessengerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AllHBCU MessengerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		192F02852041F3BB0001FB28 /* AllHBCU_MessengerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllHBCU_MessengerTests.swift; sourceTree = "<group>"; };
 		192F02872041F3BB0001FB28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B36038204588C300D8B814 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		19E2E6D02041F79E000CA770 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		19E2E6D32041FE92000CA770 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		19E2E6D5204203F6000CA770 /* CreateProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				19E2E6D82042054A000CA770 /* CreateProfileViewController.swift */,
 				190BD6B120430B4800F21F44 /* ChatsViewController.swift */,
 				19E6255C204394490081946A /* SelectUserViewController.swift */,
+				19B36038204588C300D8B814 /* ChatViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			files = (
 				19E2E6D42041FE92000CA770 /* ProfileTableViewCell.swift in Sources */,
 				192F02732041F3BB0001FB28 /* IdentityViewController.swift in Sources */,
+				19B36039204588C300D8B814 /* ChatViewController.swift in Sources */,
 				19E2E6D6204203F6000CA770 /* CreateProfileTableViewCell.swift in Sources */,
 				19E6255D204394490081946A /* SelectUserViewController.swift in Sources */,
 				19E2E6D92042054A000CA770 /* CreateProfileViewController.swift in Sources */,

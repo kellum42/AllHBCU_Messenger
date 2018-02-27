@@ -7,18 +7,44 @@
 //
 
 import UIKit
+import Firebase
+
+struct ChatPreviews {
+    let chatId: String
+    let participants: [String: Bool]
+    let lastMessage: [String: String]
+}
 
 class ChatsPreviewController: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
-    
-    var chats: [[String: Any]] = []
+
+    let db = Firestore.firestore()
+    var chats: [ChatPreviews] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        fetchChats()
         tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 30
+    }
+    
+    func fetchChats(){
+        guard let user = AppVariables.shared.user else { return }
+        db.collection("rooms")
+            .whereField("users." + user.name.lowercased(), isEqualTo: true)
+            .getDocuments() { [weak self] (querySnapshot, err) in
+            if let err = err {
+                // error handling
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print(document.data())
+                }
+                // self?.tableview.reloadData()
+            }
+        }
     }
 }
 
