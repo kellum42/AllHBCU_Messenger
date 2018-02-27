@@ -17,7 +17,7 @@ import Firebase
 struct User {
     let id: Int
     let name: String
-    let avatarColor: UIColor
+    let avatarColor: Int
 }
 
 class AppVariables {
@@ -45,7 +45,7 @@ class IdentityViewController: UIViewController {
     }
     
     func fetchProfiles(){
-        let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
+        //let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
         
         db.collection("profiles").getDocuments() { [weak self] (querySnapshot, err) in
             if let err = err {
@@ -57,7 +57,7 @@ class IdentityViewController: UIViewController {
                         return
                     }
                     
-                    self?.profiles.append(User(id: id, name: name, avatarColor: colors[color]))
+                    self?.profiles.append(User(id: id, name: name, avatarColor: color))
                 }
                 self?.tableview.reloadData()
             }

@@ -20,7 +20,7 @@ class ProfileTableViewCell: UITableViewCell {
     }
 
     func configureCell(user: User){
-        //let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
+        let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
         
         name.text = nil
         avatar.text = nil
@@ -30,6 +30,6 @@ class ProfileTableViewCell: UITableViewCell {
       
         self.name.text = user.name
         self.avatar.text = String(describing: user.name.first!).uppercased()
-        self.avatar.backgroundColor = user.avatarColor
+        self.avatar.backgroundColor = colors[user.avatarColor]
     }
 }

@@ -27,7 +27,6 @@ class SelectUserViewController: UIViewController {
     }
 
     func fetchProfiles(){
-        let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
         
         db.collection("profiles").getDocuments() { [weak self] (querySnapshot, err) in
             if let err = err {
@@ -42,7 +41,7 @@ class SelectUserViewController: UIViewController {
                     guard let me = AppVariables.shared.user else { return }
                     if me.id == id { continue }
                     
-                    self?.profiles.append(User(id: id, name: name, avatarColor: colors[color]))
+                    self?.profiles.append(User(id: id, name: name, avatarColor: color))
                 }
                 self?.tableview.reloadData()
             }
