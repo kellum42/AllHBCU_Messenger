@@ -14,6 +14,7 @@ class SelectUserViewController: UIViewController {
     let db = Firestore.firestore()
     var profiles: [User] = []
     var friendToMessage: User?
+    var chatId: String?
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -75,6 +76,8 @@ extension SelectUserViewController: UITableViewDelegate, UITableViewDataSource {
         
         if profiles.count > 0 {
             
+            chatId = nil // reset chat id
+            
             // check to see if conversation exists
             guard let user = AppVariables.shared.user else {
                 // do some error handling
@@ -89,12 +92,17 @@ extension SelectUserViewController: UITableViewDelegate, UITableViewDataSource {
                 .whereField("users." + selectedUser.name.lowercased(), isEqualTo: true)
             .getDocuments() { [weak self] (querySnapshot, err) in
                 if let err = err {
-                    print("Error getting documents: \(err)")
+                    print("ERROR GETTING DOCUMENTS: \(err)")
                 
                 } else {
-                    // querySnapshot!.documents
-                    // push to messages view controller with these messages
-                    // handle if there are no messages in the next controller
+                    //  If there is a match, get the chatId
+                    if querySnapshot!.documents.count > 0 {
+                        let doc = querySnapshot!.documents[0]
+                        if let lastMessage = doc.data()["last_message"] as? [String: Any], let chatId = lastMessage["chat_id"] as? String {
+                            
+                            self?.chatId = chatId
+                        }
+                    }
                     
                     // ensure the friend they're messaging and themselves exists
                     guard let _ = self?.friendToMessage, let _ = AppVariables.shared.user else {
@@ -116,6 +124,7 @@ extension SelectUserViewController {
             let destination = segue.destination as! ChatViewController
             destination.friend = friendToMessage!
             destination.me = AppVariables.shared.user!
+            destination.chatId = chatId
         }
     }
 }

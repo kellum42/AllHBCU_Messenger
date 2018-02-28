@@ -20,6 +20,7 @@
 		19E2E6D6204203F6000CA770 /* CreateProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2E6D5204203F6000CA770 /* CreateProfileTableViewCell.swift */; };
 		19E2E6D92042054A000CA770 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E2E6D82042054A000CA770 /* CreateProfileViewController.swift */; };
 		19E6255D204394490081946A /* SelectUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E6255C204394490081946A /* SelectUserViewController.swift */; };
+		1F68952620471B04005264DB /* ChatPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F68952520471B04005264DB /* ChatPreviewTableViewCell.swift */; };
 		3EF71B6F5F3DFFF945F1BB97 /* Pods_AllHBCU_Messenger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A21B60AE61C6D526D65BF08 /* Pods_AllHBCU_Messenger.framework */; };
 		D857F92C81A49171AE84580F /* Pods_AllHBCU_MessengerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDA2C1DF05250DF31D51B33 /* Pods_AllHBCU_MessengerTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		19E2E6D5204203F6000CA770 /* CreateProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileTableViewCell.swift; sourceTree = "<group>"; };
 		19E2E6D82042054A000CA770 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		19E6255C204394490081946A /* SelectUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectUserViewController.swift; sourceTree = "<group>"; };
+		1F68952520471B04005264DB /* ChatPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPreviewTableViewCell.swift; sourceTree = "<group>"; };
 		2BF97FECDD9C2DFC587E5EBF /* Pods-AllHBCU MessengerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllHBCU MessengerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllHBCU MessengerTests/Pods-AllHBCU MessengerTests.release.xcconfig"; sourceTree = "<group>"; };
 		2E7075843FCEA3BA6F7A1540 /* Pods-AllHBCU Messenger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllHBCU Messenger.release.xcconfig"; path = "Pods/Target Support Files/Pods-AllHBCU Messenger/Pods-AllHBCU Messenger.release.xcconfig"; sourceTree = "<group>"; };
 		669C18D7B826E5D3D3362731 /* Pods-AllHBCU Messenger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllHBCU Messenger.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AllHBCU Messenger/Pods-AllHBCU Messenger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				19E2E6D32041FE92000CA770 /* ProfileTableViewCell.swift */,
 				19E2E6D5204203F6000CA770 /* CreateProfileTableViewCell.swift */,
+				1F68952520471B04005264DB /* ChatPreviewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19E2E6D42041FE92000CA770 /* ProfileTableViewCell.swift in Sources */,
+				1F68952620471B04005264DB /* ChatPreviewTableViewCell.swift in Sources */,
 				192F02732041F3BB0001FB28 /* IdentityViewController.swift in Sources */,
 				19B36039204588C300D8B814 /* ChatViewController.swift in Sources */,
 				19E2E6D6204203F6000CA770 /* CreateProfileTableViewCell.swift in Sources */,

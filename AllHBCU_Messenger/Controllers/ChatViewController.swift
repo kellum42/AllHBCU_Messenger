@@ -10,6 +10,9 @@
 //  If message id is 1, create chat room
 //  On each message sent create message doc with chat id in it
 
+//  TODO: Pass the number of messags to this controller so the last X
+//  messages can be filtered and more can be fetched as the user desires
+
 import UIKit
 import Firebase
 import JSQMessagesViewController
@@ -31,6 +34,7 @@ class ChatViewController: JSQMessagesViewController {
     
     var originalMessages: [[String: Any]] = []
     var messages = [JSQMessage]()
+    var listenerQueries: Int = 0
     
     lazy var outgoingBubbleImageView = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView = self.setupIncomingBubble()
@@ -39,9 +43,7 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
 
         //  start loading in messages
-        if chatId != nil {
-            loadSavedMessages()
-        }
+        loadSavedMessages()
         
         senderDisplayName = me.name.capitalized
         senderId = String(me.id)
@@ -65,36 +67,47 @@ class ChatViewController: JSQMessagesViewController {
             return
         }
         
-        // TODO: Add composite index to query to it can be sorted by timestamp
-        db.collection("messages").whereField("chat_id", isEqualTo: chatId + "_full")
+
+        db.collection("messages").whereField("chat_id", isEqualTo: chatId)
+            .order(by: "messageNumber")
             .getDocuments() { [weak self] (querySnapshot, err) in
                 if let err = err {
                     print("ERROR GETTING DOCUMENTS: \(err)")
                 } else {
-                    var tempMessages:[JSQMessage] = []
                     for document in querySnapshot!.documents {
                         guard let jQSMessage = self?.jsonToJQSMessage(json: document.data()) else {
                             continue
                         }
-                        tempMessages.append(jQSMessage)
+                        self?.messages.append(jQSMessage)
                     }
+                    self?.finishSendingMessage(animated: false)
                 }
         }
     }
     
-    
+    //  Listens for any updates to the last_message field in the rooms document
+    //  When updates occur, pushes message into the UI
+    //  TODO: Add in messages with images/videos
     func listenForNewMessages(){
         guard let chatId = chatId else {
             return
         }
+        
         let room = String(chatId.dropLast(5))
         
         db.collection("rooms").document(room)
             .addSnapshotListener { [weak self] documentSnapshot, error in
+                
+                //  skip the initial snapshot because the message will be included
+                //  in the call for all the messages
+                self?.listenerQueries += 1
+                if self?.listenerQueries == 1 { return }
+                
                 guard let document = documentSnapshot else {
                     print("ERROR LISTENING TO DOCUMENT: \(error!)")
                     return
                 }
+                
                 
                 guard let data = document.data(), let lastMessage = data["last_message"] as? [String: Any], let newMessage = self?.jsonToJQSMessage(json: lastMessage) else {
                     return
@@ -115,11 +128,6 @@ class ChatViewController: JSQMessagesViewController {
         onMessageSend(message: message)
     }
     
-    //  Listens for any updates to the last_message field in the rooms document
-    //  When updates occur, pushes message into the UI
-    //  TODO: Add in messages with images/videos
-    
-    
     func jsonToJQSMessage(json: [String: Any]) -> JSQMessage? {
         guard let senderId = json["sender_id"] as? Int, let senderName = json["sender_name"] as? String, let text = json["text"] as? String else {
             return nil
@@ -134,66 +142,10 @@ class ChatViewController: JSQMessagesViewController {
 extension ChatViewController {
     
     //  Adds the new message into the firestore database.
-    //  If there is only one message, create a chat preview to add to the db.
+    //  If there is only one message, creates a chat room in the db.
+    //  Publishes message into the db in the messages collection.
     //  Each message added is a new document in the db.
     func onMessageSend(message: Message){
-        
-        //  when to add message to string?
-        func publishMessage(message: Message){
-            
-            //  Each message needs a chat id so all messages within the same
-            //  chat can be queried easily
-            guard let chatId = chatId else {
-                //  error handling here
-                print("NO CHAT ID")
-                return
-            }
-            
-            //  store message in db
-            db.collection("messages").addDocument(data: [
-                "chat_id": chatId,
-                "sender_name": message.senderName,
-                "sender_id": message.senderId,
-                "text": message.text,
-                "messageNumber": message.messageNumber,
-                "timestamp": Date().timeIntervalSince1970
-                
-            ]) { [weak self] err in
-                if let err = err {
-                    print("ERROR ADDING DOCUMENT: \(err)")
-                } else {
-                    print("MESSAGE DOCUMENT CREATED")
-                    
-                    // log to last_message field in chat room doc
-                    
-                    //  Get the document name for the chat room doc
-                    //  CHAT_ID = ROOM_ID + _full
-                    let room = String(chatId.dropLast(5))
-                    
-                    self?.db.collection("rooms").document(room).setData(
-                        [
-                            "last_message": [
-                                "chat_id": chatId,
-                                "sender_name": message.senderName,
-                                "sender_id": message.senderId,
-                                "text": message.text,
-                                "messageNumber": message.messageNumber,
-                                "timestamp": Date().timeIntervalSince1970
-                            ],
-                        ],
-                        options: SetOptions.merge()
-                    
-                    ) { err in
-                        if let err = err {
-                            print("ERROR WRITING DOCUMENT: \(err)")
-                        } else {
-                            print("LAST MESSAGE SUCCESSFULLY UPDATED!")
-                        }
-                    }
-                }
-            }
-        }
-
         
         //  If this is the first message, create the chat room doc.
         // Then store the message as normal.
@@ -228,13 +180,71 @@ extension ChatViewController {
                         
                         //  start listening for new messages
                         self?.listenForNewMessages()
-                        publishMessage(message: message)
+                        self?.publishMessage(message: message)
                     }
                 }
             }
             
         } else {
             publishMessage(message: message)
+        }
+    }
+    
+    
+    //  Stores message into the db
+    //  Also updates last_message in the chat room doc
+    func publishMessage(message: Message){
+        
+        //  Each message needs a chat id so all messages within the same
+        //  chat can be queried easily
+        guard let chatId = chatId else {
+            //  error handling here
+            print("NO CHAT ID")
+            return
+        }
+        
+        //  store message in db
+        db.collection("messages").addDocument(data: [
+            "chat_id": chatId,
+            "sender_name": message.senderName,
+            "sender_id": message.senderId,
+            "text": message.text,
+            "messageNumber": message.messageNumber,
+            "timestamp": Date().timeIntervalSince1970
+            
+        ]) { [weak self] err in
+            if let err = err {
+                print("ERROR ADDING DOCUMENT: \(err)")
+            } else {
+                print("MESSAGE DOCUMENT CREATED")
+                
+                // log to last_message field in chat room doc
+                
+                //  Get the document name for the chat room doc
+                //  CHAT_ID = ROOM_ID + _full
+                let room = String(chatId.dropLast(5))
+                
+                self?.db.collection("rooms").document(room).setData(
+                    [
+                        "last_message": [
+                            "chat_id": chatId,
+                            "sender_name": message.senderName,
+                            "sender_id": message.senderId,
+                            "text": message.text,
+                            "messageNumber": message.messageNumber,
+                            "timestamp": Date().timeIntervalSince1970
+                        ],
+                        ],
+                    options: SetOptions.merge()
+                    
+                ) { err in
+                    if let err = err {
+                        print("ERROR WRITING DOCUMENT: \(err)")
+                    } else {
+                        print("LAST MESSAGE SUCCESSFULLY UPDATED!")
+                    }
+                }
+            }
         }
     }
 }
