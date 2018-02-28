@@ -39,7 +39,9 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
 
         //  start loading in messages
-        
+        if chatId != nil {
+            loadSavedMessages()
+        }
         
         senderDisplayName = me.name.capitalized
         senderId = String(me.id)
@@ -54,29 +56,37 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if chatId != nil {
-            listenForNewMessages()
-        }
+        listenForNewMessages()
     }
 
-    
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        
-        if text == "" { return }
-       
-        let message = Message(chatId: chatId, text: text, senderName: senderDisplayName.lowercased(), senderId: Int(senderId)!, messageNumber: messages.count + 1)
-        
-        onMessageSend(message: message)
-    }
-    
-    //  Listens for any updates to the last_message field in the rooms document
-    //  When updates occur, pushes message into the UI
-    //  TODO: Add in messages with images/videos
-    func listenForNewMessages(){
+  
+    func loadSavedMessages(){
         guard let chatId = chatId else {
             return
         }
         
+        // TODO: Add composite index to query to it can be sorted by timestamp
+        db.collection("messages").whereField("chat_id", isEqualTo: chatId + "_full")
+            .getDocuments() { [weak self] (querySnapshot, err) in
+                if let err = err {
+                    print("ERROR GETTING DOCUMENTS: \(err)")
+                } else {
+                    var tempMessages:[JSQMessage] = []
+                    for document in querySnapshot!.documents {
+                        guard let jQSMessage = self?.jsonToJQSMessage(json: document.data()) else {
+                            continue
+                        }
+                        tempMessages.append(jQSMessage)
+                    }
+                }
+        }
+    }
+    
+    
+    func listenForNewMessages(){
+        guard let chatId = chatId else {
+            return
+        }
         let room = String(chatId.dropLast(5))
         
         db.collection("rooms").document(room)
@@ -92,8 +102,23 @@ class ChatViewController: JSQMessagesViewController {
                 
                 self?.messages.append(newMessage)
                 self?.finishSendingMessage()
-            }
+        }
     }
+    
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        if text == "" { return }
+       
+        let message = Message(chatId: chatId, text: text, senderName: senderDisplayName.lowercased(), senderId: Int(senderId)!, messageNumber: messages.count + 1)
+        
+        onMessageSend(message: message)
+    }
+    
+    //  Listens for any updates to the last_message field in the rooms document
+    //  When updates occur, pushes message into the UI
+    //  TODO: Add in messages with images/videos
+    
     
     func jsonToJQSMessage(json: [String: Any]) -> JSQMessage? {
         guard let senderId = json["sender_id"] as? Int, let senderName = json["sender_name"] as? String, let text = json["text"] as? String else {
@@ -197,12 +222,14 @@ extension ChatViewController {
                     print("Error adding room document: \(err)")
                 } else {
                     print("Document added with ID: \(messageRef!.documentID)")
-                    self?.chatId = messageRef!.documentID + "_full"
                     
-                    //  start listening for new messages
-                    self?.listenForNewMessages()
-                    
-                    publishMessage(message: message)
+                    if self?.chatId == nil {
+                        self?.chatId = messageRef!.documentID + "_full"
+                        
+                        //  start listening for new messages
+                        self?.listenForNewMessages()
+                        publishMessage(message: message)
+                    }
                 }
             }
             
