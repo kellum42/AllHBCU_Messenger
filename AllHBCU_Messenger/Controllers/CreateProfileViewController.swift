@@ -16,6 +16,7 @@ class CreateProfileViewController: UIViewController {
     
     let db = Firestore.firestore()
     let colors: [UIColor] = [.red, .blue, .cyan, .purple, .yellow, .orange, .green]
+    var profileCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,11 @@ extension CreateProfileViewController: UITextFieldDelegate {
         }
         
         hideErrorMessage()
-    
+        
         // Add a new document with a generated id.
         db.collection("profiles").document(text).setData([
             "name": text,
+            "id": String(profileCount + 1) + String(Date().timeIntervalSince1970),
             "avatar_color": arc4random_uniform(UInt32(colors.count))
         ]){ [weak self] (err) in
             if let _  = err {

@@ -35,7 +35,7 @@ class SelectUserViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    guard let id = data["id"] as? Int, let name = data["name"] as? String, let color = data["avatar_color"] as? Int else {
+                    guard let id = data["id"] as? String, let name = data["name"] as? String, let color = data["avatar_color"] as? Int else {
                         continue
                     }
                     

@@ -15,7 +15,7 @@ import UIKit
 import Firebase
 
 struct User {
-    let id: Int
+    let id: String
     let name: String
     let avatarColor: Int
 }
@@ -38,10 +38,16 @@ class IdentityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchProfiles()
-        
         tableview.rowHeight = UITableViewAutomaticDimension
         tableview.estimatedRowHeight = 30
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        profiles = []
+        fetchProfiles()
     }
     
     func fetchProfiles(){
@@ -53,7 +59,7 @@ class IdentityViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                    let data = document.data()
-                    guard let id = data["id"] as? Int, let name = data["name"] as? String, let color = data["avatar_color"] as? Int else {
+                    guard let id = data["id"] as? String, let name = data["name"] as? String, let color = data["avatar_color"] as? Int else {
                         return
                     }
                     
@@ -67,31 +73,34 @@ class IdentityViewController: UIViewController {
 
 extension IdentityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (profiles.count == 0) ? 1 : profiles.count
+        return profiles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
         UITableViewCell {
  
-        if profiles.count > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfileTableViewCell
-            let profile = profiles[indexPath.row]
-            cell.selectionStyle = .default
-            cell.configureCell(user: profile)
-            return cell
-            
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "createProfileCell") as! CreateProfileTableViewCell
-            cell.selectionStyle = .none
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath) as! ProfileTableViewCell
+        let profile = profiles[indexPath.row]
+        cell.selectionStyle = .default
+        cell.configureCell(user: profile)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        AppVariables.shared.user = profiles[indexPath.row]
-        // segue to new controller
-        performSegue(withIdentifier: "toChats", sender: self)
+        if profiles.count > 0 {
+            AppVariables.shared.user = profiles[indexPath.row]
+            performSegue(withIdentifier: "toChats", sender: self)
+        }
+    }
+}
+
+extension IdentityViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCreateProfile" {
+            let destination = segue.destination as! CreateProfileViewController
+            destination.profileCount = profiles.count
+        }
     }
 }

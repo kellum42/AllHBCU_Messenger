@@ -12,7 +12,7 @@ import Firebase
 struct ChatPreviews {
     let chatId: String
     let participants: [User]
-    let senderId: Int
+    let senderId: String
     let messageText: String
 }
 
@@ -53,7 +53,7 @@ extension ChatsPreviewController {
             } else {
                 for document in querySnapshot!.documents {
                     let data = document.data()
-                    guard let users = data["user_data"] as? [[String: Any]], let lastMessage = data["last_message"] as? [String: Any], let senderId = lastMessage["sender_id"] as? Int, let chatId = lastMessage["chat_id"] as? String, let text = lastMessage["text"] as? String else {
+                    guard let users = data["user_data"] as? [[String: Any]], let lastMessage = data["last_message"] as? [String: Any], let senderId = lastMessage["sender_id"] as? String, let chatId = lastMessage["chat_id"] as? String, let text = lastMessage["text"] as? String else {
                         //  error handling
                         print("ERROR PARSING ROOM")
                         return
@@ -61,7 +61,7 @@ extension ChatsPreviewController {
                     
                     var userArray: [User] = []
                     for user in users {
-                        if let id = user["id"] as? Int, let color = user["color"] as? Int, let name = user["name"] as? String {
+                        if let id = user["id"] as? String, let color = user["color"] as? Int, let name = user["name"] as? String {
                             //  skip the current user
                             if id == AppVariables.shared.user!.id { continue }
                             userArray.append(User(id: id, name: name, avatarColor: color))

@@ -45,7 +45,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LUh-xi-vsz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="64" id="0At-wb-yX5" customClass="ProfileTableViewCell" customModule="AllHBCU_Messenger" customModuleProvider="target">
@@ -100,34 +100,6 @@
                                             <outlet property="separator" destination="2ah-KE-iKy" id="aDd-L3-4Co"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="createProfileCell" rowHeight="80" id="aVm-SX-ghi" customClass="CreateProfileTableViewCell" customModule="AllHBCU_Messenger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="80"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aVm-SX-ghi" id="zhX-6j-amS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwe-N0-mcy">
-                                                    <rect key="frame" x="15" y="16" width="345" height="48"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <state key="normal" title="+ Create Profile"/>
-                                                    <connections>
-                                                        <segue destination="5yI-1v-Gwh" kind="show" id="6qL-2e-CFb"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Gwe-N0-mcy" secondAttribute="trailing" id="5ZO-NG-egx"/>
-                                                <constraint firstItem="Gwe-N0-mcy" firstAttribute="top" secondItem="zhX-6j-amS" secondAttribute="topMargin" constant="5" id="Sa3-QX-FoD"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Gwe-N0-mcy" secondAttribute="bottom" constant="5" id="WX8-RV-rcL"/>
-                                                <constraint firstItem="Gwe-N0-mcy" firstAttribute="leading" secondItem="zhX-6j-amS" secondAttribute="leadingMargin" id="b4T-6A-PmE"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="addProfile" destination="Gwe-N0-mcy" id="jEu-9a-czz"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="wXF-Gy-pBi"/>
@@ -144,9 +116,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Who Are You?" id="sWJ-nt-EaL">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mdK-Ee-FGm"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UGm-by-wFT">
+                            <connections>
+                                <segue destination="5yI-1v-Gwh" kind="show" identifier="toCreateProfile" id="NPr-DR-jZv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableview" destination="LUh-xi-vsz" id="yFN-1j-9YB"/>
                         <segue destination="OdB-eZ-xmi" kind="show" identifier="toChats" id="rTf-Sd-bHL"/>
@@ -165,7 +144,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZhK-IX-bcV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatPreview" rowHeight="89" id="NRx-8i-QNE" customClass="ChatPreviewTableViewCell" customModule="AllHBCU_Messenger" customModuleProvider="target">
@@ -256,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="onR-Pu-9gY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileCell" rowHeight="77" id="CCH-X7-btn" customClass="ProfileTableViewCell" customModule="AllHBCU_Messenger" customModuleProvider="target">
@@ -348,23 +327,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-FH-sya">
-                                <rect key="frame" x="0.0" y="83" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter username..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0JS-FH-sya">
+                                <rect key="frame" x="0.0" y="84" width="375" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="oNt-EY-sd2"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter a username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-ny-uUU">
-                                <rect key="frame" x="89" y="143" width="196" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-ny-uUU">
+                                <rect key="frame" x="112.5" y="154" width="149.5" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMb-h6-07A">
+                                <rect key="frame" x="0.0" y="84" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="fgs-mk-Kna"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hh-NR-5pI">
+                                <rect key="frame" x="0.0" y="138" width="375" height="1"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="uDU-Av-Mca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rMb-h6-07A" firstAttribute="leading" secondItem="0JS-FH-sya" secondAttribute="leading" id="3tt-u5-qrn"/>
+                            <constraint firstItem="0JS-FH-sya" firstAttribute="leading" secondItem="Dk8-dT-ab2" secondAttribute="leading" id="9iY-T4-sRP"/>
+                            <constraint firstItem="rMb-h6-07A" firstAttribute="trailing" secondItem="0JS-FH-sya" secondAttribute="trailing" id="AZu-Ij-k35"/>
+                            <constraint firstItem="8hh-NR-5pI" firstAttribute="leading" secondItem="0JS-FH-sya" secondAttribute="leading" id="f3u-Ct-dfw"/>
+                            <constraint firstAttribute="trailing" secondItem="0JS-FH-sya" secondAttribute="trailing" id="hVd-gH-9lh"/>
+                            <constraint firstItem="8hh-NR-5pI" firstAttribute="trailing" secondItem="0JS-FH-sya" secondAttribute="trailing" id="lpp-pf-bmL"/>
+                            <constraint firstItem="vhe-ny-uUU" firstAttribute="top" secondItem="0JS-FH-sya" secondAttribute="bottom" constant="15" id="mpJ-l0-oKK"/>
+                            <constraint firstItem="0JS-FH-sya" firstAttribute="top" secondItem="Bg3-If-pwx" secondAttribute="top" constant="20" id="owo-V0-yay"/>
+                            <constraint firstItem="vhe-ny-uUU" firstAttribute="centerX" secondItem="Dk8-dT-ab2" secondAttribute="centerX" id="qeA-8r-eQF"/>
+                            <constraint firstItem="rMb-h6-07A" firstAttribute="top" secondItem="0JS-FH-sya" secondAttribute="top" id="rvY-70-YwG"/>
+                            <constraint firstItem="8hh-NR-5pI" firstAttribute="bottom" secondItem="0JS-FH-sya" secondAttribute="bottom" id="xgc-8I-aTU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bg3-If-pwx"/>
                     </view>
                     <navigationItem key="navigationItem" title="Create Profile" id="hJN-4d-1vG"/>

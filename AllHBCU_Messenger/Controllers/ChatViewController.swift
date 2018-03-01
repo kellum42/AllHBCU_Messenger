@@ -21,7 +21,7 @@ struct Message {
     let chatId: String?
     let text: String
     let senderName: String
-    let senderId: Int
+    let senderId: String
     let messageNumber: Int
 }
 
@@ -123,17 +123,17 @@ class ChatViewController: JSQMessagesViewController {
         
         if text == "" { return }
        
-        let message = Message(chatId: chatId, text: text, senderName: senderDisplayName.lowercased(), senderId: Int(senderId)!, messageNumber: messages.count + 1)
+        let message = Message(chatId: chatId, text: text, senderName: senderDisplayName.lowercased(), senderId: senderId, messageNumber: messages.count + 1)
         
         onMessageSend(message: message)
     }
     
     func jsonToJQSMessage(json: [String: Any]) -> JSQMessage? {
-        guard let senderId = json["sender_id"] as? Int, let senderName = json["sender_name"] as? String, let text = json["text"] as? String else {
+        guard let senderId = json["sender_id"] as? String, let senderName = json["sender_name"] as? String, let text = json["text"] as? String else {
             return nil
         }
         
-        return JSQMessage(senderId: String(senderId), displayName: senderName, text: text)
+        return JSQMessage(senderId: senderId, displayName: senderName, text: text)
     }
 }
 
